@@ -26,7 +26,7 @@
             <div class="hero-section-left">
                 <div class="hero-heading">Welcome to My Portfolio</div>
                 <div class="hero-heading hero-section-subheading">
-                    I am <span class = "role"></span>
+                    I am an <span class = "role"></span>
                 </div>
                 <div class="hero-section-description">
                     I am a passionate software developer with experience in building web applications.
@@ -44,17 +44,31 @@
                 <div class="absolute icons icon-execution">
                     <img src="images/execution.png" alt="idea icon">
                 </div>
-                <div class="absolute icons icon-presentation">
-                    <img src="images/presentation.png" alt="success icon">
-                </div>
                 <div class="absolute icons icon-dots">
                     <img src="images/dots.png" alt="presentation icon"> 
                 </div>
-                <div class="absolute icons icon-harsh">
+                <div class="absolute icons user-image">
                     <img src="images/Harsh_img.jpeg" alt="code icon">
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+    <script>
+        var typeData = new Typed(".role", {
+            strings: [
+                "Full Stack Developer",
+                "Web Developer",
+                "UI-UX Designer",
+                "Backend Developer",
+                "Coder",
+            ],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1000,
+        });
+    </script>
 </body>
 </html>

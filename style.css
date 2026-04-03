@@ -68,7 +68,6 @@ a:hover{
 .hero-section{
     display: flex;
     position: relative;
-    align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     width: 90%;
@@ -133,6 +132,10 @@ a:hover{
     transform: scale(1.05);
 }
 
+.absolute{
+    position: absolute;
+}
+
 .hero-section-right{
     position: relative;
     width: 40%;
@@ -143,13 +146,14 @@ a:hover{
 }
 
 .icons img {
-    width: 50px;
+    width: 60px;
 }
 
 .icon-dots{
-    bottom: -1rem;
-    right: 0;
+    bottom: -3rem;
+    right: 8rem;
     z-index: 9;
+    animation: dotsIconAnimation 3s linear infinite;
 }
 
 .icon-dots img {
@@ -157,48 +161,108 @@ a:hover{
 }
 
 .icon-dev{
-    top: -1.5rem;
-    left: -1.5rem;
+    top: 0.5rem;
+    left: 0.5rem;
     z-index: 9;
+    animation: devIconAnimation 3s linear infinite;
 }
 
 .icon-idea{
-    top: -1.5rem;
-    right: -1.5rem;
+    top: 0.5rem;
+    right: 6.5rem;
     z-index: 9;
+    animation: ideaIconAnimation 3s linear infinite;
 }
+
+.icon-idea img{
+     width: 70px;
+} 
 
 .icon-execution{
     bottom: -1.5rem;
     left: -1.5rem;
     z-index: 9;
+    animation: executionIconAnimation 3s linear infinite;
 }
 
-.icon-presentation{
-    bottom: -1.5rem;
-    right: -1.5rem;
-    z-index: 9;
+.user-image img{
+    width: 100%;
+    max-width: 280px;
 }
 
-.icon-harsh{
+.user-image{
     padding: 2.5rem;
     filter: grayscale(1);
     transition: all 1s;
     z-index: 2;
     display: flex;
     justify-content: center;
+    animation: userImageAnimation 3s linear infinite;
 }
 
-.icon-harsh img{
-    width: 100%;
-    max-width: 280px;
+@keyframes devIconAnimation {
+    0% {
+        transform: translateY(12px)
+    }
+    50% {
+        transform: translateY(0)
+    }
+    100% {
+        transform: translateY(12px)
+    }
 }
 
-.icon-harsh:hover{
-    filter: grayscale(0);
-    transform: scale(1.05);
+@keyframes ideaIconAnimation {
+    0% {
+        transform: translateY(-12px) rotateY(0deg)
+    }
+    50% {
+        transform: translateY(0) rotateY(180deg)
+    }
+    100% {
+        transform: translateY(-12px) rotateY(360deg)
+    }
+    
 }
 
-.absolute{
-    position: absolute;
+@keyframes executionIconAnimation {
+    50% {
+      left: 0%;
+      bottom: -2px;
+      scale: 1.3;
+    }
+    
+}
+
+@keyframes dotsIconAnimation {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(180deg);
+        scale: 1.5;
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes userImageAnimation {
+    0% {
+        filter: grayscale(1);
+        scale: 0.9;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        filter: grayscale(0);
+        scale: 1;
+        box-shadow: none;
+
+    }
+    100% {
+        filter: grayscale(1);
+        scale: 0.9;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    
 }
