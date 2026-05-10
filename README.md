@@ -87,7 +87,32 @@ Any push to `main` will trigger a new deployment at:
 Animated introduction with typed role titles, floating icons, and a profile image with a grayscale-to-color animation.
 
 ### Projects
-Three featured project cards with hover-reveal overlays, numbered badges, and links to GitHub repos and live demos.
+
+A showcase of my recent work, including this portfolio and the individual mini-projects featured within it:
+
+#### 1. Personal Portfolio Website (This Project)
+- **Description**: A modern, responsive personal portfolio website showcasing my projects, technical skills, and professional background.
+- **Key Features**: Animated hero section, interactive project cards, categorized skills grid, and a dark-themed contact footer.
+- **Tech Stack**: HTML5, CSS3 (Flexbox/Grid), Tailwind CSS (Preflight), Vanilla JS (Typed.js).
+- **Links**: [GitHub Repo](https://github.com/Harsh3851/Portfolio) | [Live Demo](https://harsh3851.github.io/Portfolio/)
+
+#### 2. Task Master
+- **Description**: A sleek and modern task management dashboard built for productivity.
+- **Key Features**: Sidebar navigation, summary stat cards, dynamic task table, and an interactive donut chart for task statistics.
+- **Tech Stack**: HTML5, CSS3, Chart.js.
+- **Links**: [GitHub Repo](https://github.com/Harsh3851/Task-Master) | [Live Demo](https://harsh3851.github.io/Task-Master/)
+
+#### 3. Weather Wiz
+- **Description**: Real-time weather forecasting with a beautiful minimalist interface.
+- **Key Features**: Dark glassmorphic theme, hourly forecast display, 5-day forecast breakdown, and an animated rain background.
+- **Tech Stack**: HTML5, CSS3.
+- **Links**: [GitHub Repo](https://github.com/Harsh3851/Weather-Wiz) | [Live Demo](https://harsh3851.github.io/Weather-Wiz/)
+
+#### 4. FinTrack
+- **Description**: A personal finance tracker with interactive charts and budget management.
+- **Key Features**: Dynamic budget calculation, expense list management, and real-time expense breakdown via a pie chart.
+- **Tech Stack**: HTML5, CSS3, Vanilla JS, Chart.js.
+- **Links**: [GitHub Repo](https://github.com/Harsh3851/FinTrack) | [Live Demo](https://harsh3851.github.io/FinTrack/)
 
 ### Skills
 Eight categorized skill cards (Languages, Frameworks, Web, Backend & APIs, AI Tools, Tools, Testing, Methodologies) displayed in a 2-column grid with brand-colored icons and a decorative blob gradient.
