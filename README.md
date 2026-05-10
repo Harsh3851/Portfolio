@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website showcasing my projects, technical skills, and professional background.
 
-🔗 **Live Site**: *Coming soon*  
+🔗 **Live Site**: [harsh3851.github.io/Portfolio](https://harsh3851.github.io/Portfolio/)  
 📄 **Resume**: [View Resume](https://drive.google.com/file/d/1CqJH7Nyp3k2CxaavpA34Lu9ZXWae6K1c/view?usp=drive_link)
 
 ---
@@ -19,13 +19,14 @@ A modern, responsive personal portfolio website showcasing my projects, technica
 
 ## 🛠️ Tech Stack
 
-| Layer       | Technology                         |
-| ----------- | ---------------------------------- |
-| **Structure** | HTML5, Semantic Elements           |
-| **Styling**   | CSS3 (Custom Properties, Grid, Flexbox, Animations) |
-| **Utility**   | Tailwind CSS v4 (reset/preflight)  |
-| **Icons**     | Font Awesome 6                     |
-| **Animation** | Typed.js, CSS Keyframe Animations  |
+| Layer         | Technology                                                      |
+| ------------- | --------------------------------------------------------------- |
+| **Structure** | HTML5, Semantic Elements                                        |
+| **Styling**   | CSS3 (Custom Properties, Grid, Flexbox, Keyframe Animations)    |
+| **Utility**   | Tailwind CSS v4 (reset / preflight)                             |
+| **Icons**     | Font Awesome 6                                                  |
+| **Animation** | Typed.js, CSS Keyframe Animations                               |
+| **Hosting**   | GitHub Pages                                                    |
 
 ---
 
@@ -39,17 +40,11 @@ Portfolio/
 │   ├── dev.png
 │   ├── Idea.png
 │   ├── execution.png
-│   ├── dots.png
-│   ├── project1.png
-│   ├── project2.png
-│   ├── project3.png
-│   ├── antigravity-icon.svg
-│   ├── openai-icon.svg
-│   ├── claude-icon.svg
-│   └── gemini-icon.svg
+│   └── Dots.png
 ├── index.html            # Main HTML file
 ├── style.css             # All styles (hero, projects, skills, footer)
 ├── package.json          # npm config & scripts
+├── .gitignore            # Git ignore rules
 └── README.md             # This file
 ```
 
@@ -62,7 +57,7 @@ Portfolio/
 - [Node.js](https://nodejs.org/) (v18+)
 - npm (comes with Node.js)
 
-### Installation
+### Local Development
 
 ```bash
 # Clone the repository
@@ -77,6 +72,12 @@ npm run start
 ```
 
 The site will be available at **http://localhost:3000**.
+
+### Deployment
+
+The site is deployed automatically via **GitHub Pages** from the `main` branch.  
+Any push to `main` will trigger a new deployment at:  
+👉 [https://harsh3851.github.io/Portfolio/](https://harsh3851.github.io/Portfolio/)
 
 ---
 
@@ -98,9 +99,11 @@ Dark-themed footer with personal branding, quick navigation links, external reso
 
 ## 🔗 Connect
 
+- **Portfolio**: [harsh3851.github.io/Portfolio](https://harsh3851.github.io/Portfolio/)
 - **GitHub**: [github.com/Harsh3851](https://github.com/Harsh3851/Portfolio)
 - **LinkedIn**: [linkedin.com/in/harsh-shukla-dev008](https://www.linkedin.com/in/harsh-shukla-dev008/)
 - **Email**: [harsh.shukla.dev@gmail.com](mailto:harsh.shukla.dev@gmail.com)
+- **Resume**: [View Resume](https://drive.google.com/file/d/1CqJH7Nyp3k2CxaavpA34Lu9ZXWae6K1c/view?usp=drive_link)
 
 ---
 
