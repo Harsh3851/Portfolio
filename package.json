@@ -1,26 +1,13 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "npx --yes serve .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Harsh3851/portfolio.git"
-  },
-  "keywords": [],
-  "author": "",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal portfolio of Harsh Shukla - plain HTML, CSS and JavaScript",
+  "homepage": "https://harsh3851.github.io/Portfolio/",
+  "repository": { "type": "git", "url": "git+https://github.com/Harsh3851/Portfolio.git" },
+  "author": "Harsh Shukla",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Harsh3851/portfolio/issues"
-  },
-  "homepage": "https://github.com/Harsh3851/portfolio#readme",
-  "description": "",
-  "devDependencies": {
-    "autoprefixer": "^10.5.0",
-    "postcss": "^8.5.10",
-    "tailwindcss": "^4.2.3"
+  "scripts": {
+    "start": "npx --yes serve ."
   }
 }

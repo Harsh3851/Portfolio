@@ -1,344 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh's Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harsh Shukla — Software Engineer (Angular, TypeScript, Node.js)</title>
+  <meta name="description" content="Harsh Shukla is a software engineer in Noida, India, building Angular and full-stack JavaScript applications for enterprise assessment and learning platforms.">
+  <meta name="author" content="Harsh Shukla">
+  <link rel="canonical" href="https://harsh3851.github.io/Portfolio/">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Harsh Shukla — Software Engineer">
+  <meta property="og:description" content="Angular and full-stack JavaScript engineer. 2+ years shipping production features for a platform used by 5,000+ people.">
+  <meta property="og:url" content="https://harsh3851.github.io/Portfolio/">
+  <meta property="og:image" content="https://harsh3851.github.io/Portfolio/images/og-harsh.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d4ed8'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EHS%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* follow the system theme */ }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Harsh Shukla",
+    "jobTitle": "Software Engineer",
+    "url": "https://harsh3851.github.io/Portfolio/",
+    "image": "https://harsh3851.github.io/Portfolio/images/og-harsh.jpg",
+    "email": "mailto:harsh.shukla.dev@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Noida", "addressCountry": "IN" },
+    "worksFor": { "@type": "Organization", "name": "Ginger Webs Pvt. Ltd. (ThinkExam)" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Chandigarh University" },
+    "sameAs": ["https://github.com/Harsh3851", "https://www.linkedin.com/in/harsh-shukla-dev008/"],
+    "knowsAbout": ["Angular", "TypeScript", "RxJS", "JavaScript", "React", "Node.js", "Express.js", "Laravel", "MySQL", "MongoDB", "REST APIs"]
+  }
+  </script>
 </head>
 
 <body>
-    <div id="wrapper">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo-container">
-                    <img src="images/letter H.jfif" alt="Logo" class="logo">
-                    <div class="logo-text">arsh Shukla</div>
-                </div>
-                <div class="nav-items">
-                    <div><a href="#projects">Projects</a></div>
-                    <div><a href="#skills">Skills</a></div>
-                    <div><a href="#contact">Contact</a></div>
-                </div>
-            </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mark">HS</span><span class="loader-count" id="loader-count">0</span></div>
+    <span class="loader-bar" id="loader-bar"></span>
+  </div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><em id="cursor-label"></em></span></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  </svg>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Harsh Shukla, home">
+        <span class="brand-mark" aria-hidden="true">HS</span>
+        <span class="brand-text"><span class="brand-name">Harsh Shukla</span><span class="brand-sub">Software Engineer</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul id="nav-list">
+          <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-btn" id="theme-toggle" type="button" aria-pressed="false" title="Toggle dark mode">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <span id="theme-label">Light</span>
+        </button>
+        <a class="btn btn-primary btn-sm header-cta" href="Harsh_Shukla_Resume.pdf" download="Harsh_Shukla_Resume.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Résumé</a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="status" data-hero><span class="status-dot" aria-hidden="true"></span>Software Developer at Ginger Webs (ThinkExam) · Noida, India</p>
+          <h1 class="split-chars" data-hero aria-label="Harsh Shukla">Harsh Shukla</h1>
+          <p class="tagline split-words" data-hero>Angular &amp; full-stack JavaScript engineer with 2+ years of experience building enterprise assessment and learning platforms.</p>
+          <p class="summary" data-hero>
+            I build and maintain Angular 19 applications and the Laravel and Node.js REST APIs behind them for a
+            platform used by 5,000+ people. My focus is performance, reliable releases and clean, reusable components.
+          </p>
+          <div class="hero-actions" data-hero>
+            <a class="btn btn-primary magnetic" href="Harsh_Shukla_Resume.pdf" download="Harsh_Shukla_Resume.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download résumé</a>
+            <a class="btn btn-secondary magnetic" href="#contact">Contact me</a>
+          </div>
+          <ul class="hero-links" aria-label="Profiles" data-hero>
+            <li><a href="https://github.com/Harsh3851" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-github"/></svg>github.com/Harsh3851</a></li>
+            <li><a href="https://www.linkedin.com/in/harsh-shukla-dev008/" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-linkedin"/></svg>linkedin.com/in/harsh-shukla-dev008</a></li>
+            <li><a href="mailto:harsh.shukla.dev@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>harsh.shukla.dev@gmail.com</a></li>
+          </ul>
         </div>
-        <div class="hero-section">
-            <div class="faded-text">Harsh Shukla</div>
-            <div class="hero-section-left">
-                <div class="hero-heading">Welcome to My Portfolio</div>
-                <div class="hero-heading hero-section-subheading">
-                    I am an <span class="role"></span>
-                </div>
-                <div class="hero-section-description">
-                    I am a passionate software developer with experience in building web applications.
-                    I enjoy learning new technologies and solving complex problems. Below are some of my projects and
-                    skills.
-                </div>
-                <a href="#contact" class="btn-pink" id="btn">Get in Touch</a>
-            </div>
-            <div class="hero-section-right">
-                <div class="absolute icons icon-dev">
-                    <img src="images/dev.png" alt="dev icon">
-                </div>
-                <div class="absolute icons icon-idea">
-                    <img src="images/Idea.png" alt="code icon">
-                </div>
-                <div class="absolute icons icon-execution">
-                    <img src="images/execution.png" alt="idea icon">
-                </div>
-                <div class="absolute icons icon-dots">
-                    <img src="images/Dots.png" alt="presentation icon">
-                </div>
-                <div class="absolute icons user-image">
-                    <img src="images/Harsh_img.jpeg" alt="code icon">
-                </div>
-            </div>
+
+        <aside class="hero-side">
+          <figure class="photo tilt" id="photo">
+            <img src="images/harsh.jpg" alt="Portrait of Harsh Shukla" width="720" height="720" fetchpriority="high">
+            <span class="shine" aria-hidden="true"></span>
+          </figure>
+          <dl class="facts card" data-hero-side>
+            <div><dt><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>Experience</dt><dd>2+ years, full time since Jan 2025</dd></div>
+            <div><dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Location</dt><dd>Noida, Uttar Pradesh, India</dd></div>
+            <div><dt><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>Education</dt><dd>B.E. Computer Science, Chandigarh University, 2025</dd></div>
+            <div><dt><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Primary stack</dt><dd>Angular 19 · TypeScript · Node.js · Laravel · MySQL</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= METRICS ================= -->
+    <section class="metrics" aria-label="Key numbers">
+      <div class="container">
+        <ul class="metric-grid">
+          <li class="card metric spot" data-fx><strong class="counter" data-count="2" data-suffix="+">2+</strong><span class="metric-label">Years of experience</span><span class="metric-desc">Production web applications</span></li>
+          <li class="card metric spot" data-fx><strong class="counter" data-count="5000" data-suffix="+">5,000+</strong><span class="metric-label">Platform users</span><span class="metric-desc">On the product I ship to</span></li>
+          <li class="card metric spot" data-fx><strong class="counter" data-count="25" data-suffix="+">25+</strong><span class="metric-label">Reusable components</span><span class="metric-desc">In a documented shared library</span></li>
+          <li class="card metric spot" data-fx><strong class="counter" data-count="40" data-suffix="+">40+</strong><span class="metric-label">Unit tests</span><span class="metric-desc">Jasmine and Karma, plus Playwright E2E</span></li>
+          <li class="card metric spot" data-fx><strong class="counter" data-count="20" data-suffix="%">20%</strong><span class="metric-label">Faster initial load</span><span class="metric-desc">After bundle and change-detection work</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head" data-fx>
+          <h2>About</h2>
+          <p>A frontend engineer who is comfortable across the stack.</p>
         </div>
-        <div id="projects" class="project-section">
-            <h2 class="page-header">Projects</h2>
-            <div class="project-container">
-                <!-- Project 1 -->
-                <div class="project-card" id="project1">
-                    <div class="project-number project-number-right">01</div>
-                    <div class="project-content project-content-left">
-                        <div class="project-skills-container">
-                            <i class="fab fa-html5 project-skill-icon"></i>
-                            <i class="fab fa-css3-alt project-skill-icon"></i>
-                            <i class="fab fa-js-square project-skill-icon"></i>
-                            <i class="fab fa-react project-skill-icon"></i>
-                            <i class="fab fa-node-js project-skill-icon"></i>
-                            <i class="fas fa-database project-skill-icon"></i>
-                        </div>
-                        <h2 class="project-heading">Task Master</h2>
-                        <p class="project-sub-heading">A sleek and modern task management dashboard built for
-                            productivity.</p>
-                        <div class="btn-group">
-                            <button class="btn-pink btn-project">Read More</button>
-                            <a href="https://github.com/Harsh3851/Task-Master" target="_blank">
-                                <i title="GitHub Repo" class="fab fa-github icon-link"></i>
-                            </a>
-                            <a href="https://harsh3851.github.io/Task-Master/" target="_blank">
-                                <i title="Live Demo" class="fas fa-external-link-alt icon-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" id="project2">
-                    <div class="project-number project-number-left">02</div>
-                    <div class="project-content project-content-right">
-                        <div class="project-skills-container">
-                            <i class="fab fa-html5 project-skill-icon"></i>
-                            <i class="fab fa-css3-alt project-skill-icon"></i>
-                            <i class="fab fa-js-square project-skill-icon"></i>
-                            <i class="fas fa-cloud-sun project-skill-icon"></i>
-                        </div>
-                        <h2 class="project-heading">Weather Wiz</h2>
-                        <p class="project-sub-heading">Real-time weather forecasting with a beautiful minimalist
-                            interface.</p>
-                        <div class="btn-group">
-                            <button class="btn-pink btn-project">Read More</button>
-                            <a href="https://github.com/Harsh3851/Weather-Wiz" target="_blank">
-                                <i title="GitHub Repo" class="fab fa-github icon-link"></i>
-                            </a>
-                            <a href="https://harsh3851.github.io/Weather-Wiz/" target="_blank">
-                                <i title="Live Demo" class="fas fa-external-link-alt icon-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" id="project3">
-                    <div class="project-number project-number-right">03</div>
-                    <div class="project-content project-content-left">
-                        <div class="project-skills-container">
-                            <i class="fab fa-html5 project-skill-icon"></i>
-                            <i class="fab fa-css3-alt project-skill-icon"></i>
-                            <i class="fab fa-react project-skill-icon"></i>
-                            <i class="fas fa-chart-line project-skill-icon"></i>
-                        </div>
-                        <h2 class="project-heading">FinTrack</h2>
-                        <p class="project-sub-heading">A personal finance tracker with interactive charts and budget
-                            management.</p>
-                        <div class="btn-group">
-                            <button class="btn-pink btn-project">Read More</button>
-                            <a href="https://github.com/Harsh3851/FinTrack" target="_blank">
-                                <i title="GitHub Repo" class="fab fa-github icon-link"></i>
-                            </a>
-                            <a href="https://harsh3851.github.io/FinTrack/" target="_blank">
-                                <i title="Live Demo" class="fas fa-external-link-alt icon-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="skills" class="skills-section">
-                <!-- Decorative circuit pattern -->
-                <div class="skills-circuit-pattern"></div>
-                <h2 class="page-header skills-page-header">Skills</h2>
-                <div class="skills-inner">
-                    <div class="skills-container-left">
-                        <h3 class="skills-heading">
-                            <span class="skills-heading-colored">Me and</span><br>
-                            <span class="skills-heading-colored">My Tech Stack</span>
-                        </h3>
-                        <div class="skills-subHeading">
-                            <p>I thrive at the intersection of design and engineering — turning complex requirements
-                                into clean, maintainable code that scales.</p>
-                            <p>From architecting Angular frontends to wiring up REST endpoints and writing battle-tested
-                                code with Jasmine, every layer of the stack is a canvas I enjoy working on.</p>
-                            <p>Below is the toolkit I reach for daily — refined through real-world projects, agile
-                                sprints, and a genuine love for the craft.</p>
-                        </div>
-                    </div>
-                    <div class="skills-container-right">
-                        <div class="blob-style"></div>
-                        <div class="skills-grid">
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Languages</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fab fa-js-square" style="color:#3178c6;"></i>
-                                        TypeScript</span>
-                                    <span class="skill-badge"><i class="fab fa-js-square" style="color:#f7df1e;"></i>
-                                        JavaScript (ES6+)</span>
-                                    <span class="skill-badge"><i class="fas fa-code" style="color:#00599c;"></i>
-                                        C++</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Frameworks</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fab fa-angular" style="color:#dd0031;"></i>
-                                        Angular 19</span>
-                                    <span class="skill-badge"><i class="fas fa-project-diagram"
-                                            style="color:#b7178c;"></i> RxJS</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Web</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fab fa-html5" style="color:#e34f26;"></i>
-                                        HTML5</span>
-                                    <span class="skill-badge"><i class="fab fa-css3-alt" style="color:#264de4;"></i>
-                                        CSS3</span>
-                                    <span class="skill-badge"><i class="fab fa-sass" style="color:#cc6699;"></i>
-                                        SCSS</span>
-                                    <span class="skill-badge"><i class="fas fa-mobile-alt" style="color:#4e45d5;"></i>
-                                        Responsive Design</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Backend & APIs</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fas fa-exchange-alt" style="color:#6c63ff;"></i>
-                                        REST APIs</span>
-                                    <span class="skill-badge"><i class="fas fa-plug" style="color:#43a047;"></i> API
-                                        Integration</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">AI Tools</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fas fa-rocket" style="color:#4285f4;"></i>
-                                        Antigravity</span>
-                                    <span class="skill-badge"><i class="fas fa-code" style="color:#10a37f;"></i>
-                                        Codex</span>
-                                    <span class="skill-badge"><i class="fas fa-brain" style="color:#d97757;"></i> Claude
-                                        AI</span>
-                                    <span class="skill-badge"><i class="fas fa-comment-dots" style="color:#10a37f;"></i>
-                                        ChatGPT</span>
-                                    <span class="skill-badge"><i class="fas fa-wand-magic-sparkles"
-                                            style="color:#8b5cf6;"></i> Gemini</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Tools</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fab fa-git-alt" style="color:#f05032;"></i>
-                                        Git</span>
-                                    <span class="skill-badge"><i class="fas fa-terminal" style="color:#dd0031;"></i>
-                                        Angular CLI</span>
-                                    <span class="skill-badge"><i class="fas fa-laptop-code" style="color:#0078d7;"></i>
-                                        VS Code</span>
-                                    <span class="skill-badge"><i class="fas fa-paper-plane" style="color:#ff6c37;"></i>
-                                        Postman</span>
-                                    <span class="skill-badge"><i class="fab fa-npm" style="color:#cb3837;"></i>
-                                        npm</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Testing</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fas fa-vial" style="color:#8a4182;"></i>
-                                        Jasmine</span>
-                                    <span class="skill-badge"><i class="fas fa-shield-alt" style="color:#4e9bcd;"></i>
-                                        SonarQube</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card">
-                                <div class="skill-category-title">Methodologies</div>
-                                <div class="skill-badges">
-                                    <span class="skill-badge"><i class="fas fa-sync-alt" style="color:#0277bd;"></i>
-                                        Agile</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact / Footer Section -->
-            <footer id="contact" class="footer-section">
-                <div class="footer-inner">
-                    <div class="footer-col footer-brand">
-                        <div class="footer-logo-row">
-                            <!-- <img src="images/letter H.jfif" alt="Logo" class="footer-logo"> -->
-                            <span class="footer-name">Harsh <span class="footer-name-accent">Shukla</span></span>
-                        </div>
-                        <p class="footer-tagline">Building clean, scalable web experiences — one commit at a time.</p>
-                        <div class="footer-social-icons">
-                            <a href="https://github.com/Harsh3851/Portfolio" target="_blank" title="GitHub"><i
-                                    class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/harsh-shukla-dev008/" target="_blank"
-                                title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="mailto:harsh.shukla.dev@gmail.com" title="Email"><i
-                                    class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4 class="footer-col-title">Quick Links</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#skills">Skills</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4 class="footer-col-title">Resources</h4>
-                        <ul class="footer-links">
-                            <li><a href="https://github.com/Harsh3851/Portfolio" target="_blank">GitHub Repos</a></li>
-                            <li><a href="https://drive.google.com/file/d/1CqJH7Nyp3k2CxaavpA34Lu9ZXWae6K1c/view?usp=drive_link"
-                                    target="_blank">Resume</a></li>
-                            <li><a href="https://www.linkedin.com/in/harsh-shukla-dev008/" target="_blank">LinkedIn</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4 class="footer-col-title">Get In Touch</h4>
-                        <ul class="footer-links footer-contact-links">
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:harsh.shukla.dev@gmail.com">harsh.shukla.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>India</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>Copyright &copy; <span id="footer-year"></span> Harsh Shukla. All Rights Reserved.</p>
-                </div>
-            </footer>
+        <div class="about-grid">
+          <div class="prose" data-fx>
+            <p>
+              Since January 2025 I have worked at Ginger Webs on ThinkExam, an enterprise assessment and learning platform.
+              I build Angular 19 applications for administrators, instructors and candidates, and the Laravel REST APIs
+              they depend on, across an LMS, an e-commerce store and a candidate portal.
+            </p>
+            <p>
+              Recent work includes the live-class module with Zoom integration, an Instructor role with a granular
+              permission model, analytics dashboards and a shared component library. I care about fast first loads,
+              predictable state, accessible components and releases that do not break.
+            </p>
+            <p>
+              Before this I interned as a MERN developer and graduated in Computer Science from Chandigarh University in
+              2025, ranked 3rd of 200+, completing my final year while working full time.
+            </p>
+          </div>
+          <aside class="card competencies" data-fx>
+            <h3>Core competencies</h3>
+            <ul class="checklist">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Angular 19 application architecture, RxJS state and performance tuning</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>REST API design and integration with Laravel and Node.js</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Authentication and authorisation: JWT, refresh tokens, RBAC</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Third-party integrations: Zoom Server-to-Server OAuth, webhooks</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Testing: Jasmine, Karma, Playwright end-to-end</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Agile Scrum delivery, code review, working closely with QA and product</li>
+            </ul>
+          </aside>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
-        <script>
-            var typeData = new Typed(".role", {
-                strings: [
-                    "Full Stack Developer",
-                    "Web Developer",
-                    "UI-UX Designer",
-                    "Backend Developer",
-                    "Coder",
-                ],
-                loop: true,
-                typeSpeed: 100,
-                backSpeed: 80,
-                backDelay: 1000,
-            });
+      </div>
+    </section>
 
-            // Auto-set copyright year
-            document.getElementById('footer-year').textContent = new Date().getFullYear();
-        </script>
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-head" data-fx>
+          <h2>Experience</h2>
+          <p>Two roles in Noida, both hands-on across frontend and backend.</p>
+        </div>
+        <ol class="timeline">
+          <span class="tl-line" aria-hidden="true"></span>
+          <li class="tl-item" data-fx>
+            <span class="tl-marker" aria-hidden="true"></span>
+            <article class="card tl-card">
+              <header class="tl-head">
+                <div>
+                  <h3>Software Developer <span class="muted">(Angular &amp; Full Stack)</span></h3>
+                  <p class="tl-org">Ginger Webs Pvt. Ltd. · ThinkExam</p>
+                </div>
+                <div class="tl-meta"><span class="mono">Jan 2025 – Present</span><span class="mono muted">Noida, India</span></div>
+              </header>
+              <ul class="bullets">
+                <li>Built the LMS live-class module end to end: Zoom Server-to-Server OAuth, registration-based join links, webhook-driven attendance sync and recording retrieval, across the Angular apps and the Laravel REST API.</li>
+                <li>Delivered a new Instructor role with a granular permission catalogue, database seeders and role-aware navigation across four codebases.</li>
+                <li>Developed candidate-management and analytics dashboards with Angular Material and ECharts, plus layered JWT/RBAC authentication using interceptors and route guards.</li>
+                <li>Cut initial load time 20% through bundle profiling, lazy-loaded routes, standalone components and OnPush change detection, and built a documented library of 25+ reusable components.</li>
+                <li>Integrated 20+ REST endpoints, wrote 40+ Jasmine/Karma unit tests and closed 50+ QA defects in a quarter with Playwright end-to-end verification.</li>
+              </ul>
+              <ul class="chips" aria-label="Technologies"><li>Angular 19</li><li>TypeScript</li><li>RxJS</li><li>Angular Material</li><li>ECharts</li><li>Laravel</li><li>MySQL</li><li>Zoom API</li><li>Playwright</li></ul>
+            </article>
+          </li>
+          <li class="tl-item" data-fx>
+            <span class="tl-marker" aria-hidden="true"></span>
+            <article class="card tl-card">
+              <header class="tl-head">
+                <div>
+                  <h3>MERN Stack Developer Intern</h3>
+                  <p class="tl-org">World Web Logic Pvt. Ltd.</p>
+                </div>
+                <div class="tl-meta"><span class="mono">Jul 2024 – Dec 2024</span><span class="mono muted">Noida, India</span></div>
+              </header>
+              <ul class="bullets">
+                <li>Built responsive React.js components and pages for two feature modules, integrated with backend REST APIs.</li>
+                <li>Delivered 10+ CRUD endpoints in Node.js and Express.js with Mongoose schemas for product and order modules, validated with Postman.</li>
+                <li>Worked in a five-member Scrum team, reviewing peer pull requests and fixing defects ahead of release.</li>
+              </ul>
+              <ul class="chips" aria-label="Technologies"><li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li><li>Mongoose</li><li>Postman</li></ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head" data-fx>
+          <h2>Projects</h2>
+          <p>Production work at ThinkExam alongside personal projects that are live and open source.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card project featured spot" data-fx>
+            <div class="cover cover-thinkexam" role="img" aria-label="ThinkExam LMS and assessment platform">
+              <span class="cover-badge"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg> Production · proprietary</span>
+              <span class="cover-title">ThinkExam</span>
+              <span class="cover-sub">LMS &amp; assessment platform</span>
+              <ul class="cover-stack" aria-hidden="true"><li>Angular 19</li><li>Laravel</li><li>MySQL</li><li>Zoom API</li></ul>
+            </div>
+            <div class="project-body">
+              <h3>ThinkExam — LMS &amp; assessment platform</h3>
+              <p>Angular 19 admin, instructor and candidate applications over Laravel REST APIs. Recent work covers the live-class module with Zoom integration and webhook attendance sync, an Instructor role with a permission catalogue, candidate-management and analytics dashboards, and the shared UI library the apps are built from.</p>
+              <ul class="chips"><li>Angular 19</li><li>TypeScript</li><li>RxJS</li><li>Angular Material</li><li>ECharts</li><li>Laravel</li><li>MySQL</li><li>Zoom API</li></ul>
+              <div class="project-links"><a class="link" href="https://www.thinkexam.com/" target="_blank" rel="noopener">Product site <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><span class="muted small">Source code is proprietary</span></div>
+            </div>
+          </article>
+
+          <article class="card project spot" data-fx>
+            <a class="cover-link" data-cursor="View" href="https://harsh3851.github.io/FinTrack/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img class="cover-img" src="images/fintrack.jpg" alt="" width="960" height="600" loading="lazy"></a>
+            <div class="project-body">
+              <h3>FinTrack</h3>
+              <p>Budget tracker with category-wise expense entry, running totals and a Chart.js breakdown of spending.</p>
+              <ul class="chips"><li>JavaScript</li><li>Chart.js</li><li>CSS3</li></ul>
+              <div class="project-links"><a class="link" href="https://harsh3851.github.io/FinTrack/" target="_blank" rel="noopener">Live demo <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><a class="link" href="https://github.com/Harsh3851/FinTrack" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-github"/></svg> Source</a></div>
+            </div>
+          </article>
+
+          <article class="card project spot" data-fx>
+            <a class="cover-link" data-cursor="View" href="https://harsh3851.github.io/Task-Master/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img class="cover-img" src="images/taskmaster.jpg" alt="" width="960" height="600" loading="lazy"></a>
+            <div class="project-body">
+              <h3>Task Master</h3>
+              <p>Task dashboard with summary cards, a dynamic task table and status charts, laid out like an internal tool.</p>
+              <ul class="chips"><li>JavaScript</li><li>Chart.js</li><li>CSS Grid</li></ul>
+              <div class="project-links"><a class="link" href="https://harsh3851.github.io/Task-Master/" target="_blank" rel="noopener">Live demo <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><a class="link" href="https://github.com/Harsh3851/Task-Master" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-github"/></svg> Source</a></div>
+            </div>
+          </article>
+
+          <article class="card project spot" data-fx>
+            <a class="cover-link" data-cursor="View" href="https://harsh3851.github.io/Weather-Wiz/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img class="cover-img" src="images/weatherwiz.jpg" alt="" width="960" height="600" loading="lazy"></a>
+            <div class="project-body">
+              <h3>Weather Wiz</h3>
+              <p>Weather lookup with hourly and five-day forecasts in a minimal interface.</p>
+              <ul class="chips"><li>JavaScript</li><li>HTML5</li><li>CSS3</li></ul>
+              <div class="project-links"><a class="link" href="https://harsh3851.github.io/Weather-Wiz/" target="_blank" rel="noopener">Live demo <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><a class="link" href="https://github.com/Harsh3851/Weather-Wiz" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-github"/></svg> Source</a></div>
+            </div>
+          </article>
+
+          <article class="card project spot" data-fx>
+            <div class="cover cover-mern" role="img" aria-label="E-commerce web application built with the MERN stack">
+              <span class="cover-badge">Personal · full stack</span>
+              <span class="cover-title">E-Commerce</span>
+              <span class="cover-sub">MERN web application</span>
+              <ul class="cover-stack" aria-hidden="true"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+            </div>
+            <div class="project-body">
+              <h3>E-Commerce Web App (MERN)</h3>
+              <p>Storefront with product, cart and order flows, an admin dashboard, Express REST APIs, Mongoose schemas and JWT-protected admin routes.</p>
+              <ul class="chips"><li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li><li>JWT</li></ul>
+              <div class="project-links"><a class="link" href="mailto:harsh.shukla.dev@gmail.com?subject=MERN%20e-commerce%20project%20source"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Source on request</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-head" data-fx>
+          <h2>Skills</h2>
+          <p>Grouped by where they sit in the stack.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="card skill-group spot" data-fx><h3>Frontend</h3><ul class="chips"><li>Angular 19</li><li>TypeScript</li><li>RxJS</li><li>Angular Signals</li><li>Angular Material</li><li>Reactive Forms</li><li>React.js</li><li>HTML5</li><li>CSS3 / SCSS</li><li>Bootstrap</li><li>Responsive design</li></ul></div>
+          <div class="card skill-group spot" data-fx><h3>Backend &amp; APIs</h3><ul class="chips"><li>Node.js</li><li>Express.js</li><li>Laravel (PHP)</li><li>REST API design</li><li>JWT authentication</li><li>RBAC</li><li>Webhooks</li><li>Zoom API</li></ul></div>
+          <div class="card skill-group spot" data-fx><h3>Databases</h3><ul class="chips"><li>MySQL</li><li>MongoDB</li><li>Mongoose</li><li>Eloquent ORM</li></ul></div>
+          <div class="card skill-group spot" data-fx><h3>Testing &amp; tooling</h3><ul class="chips"><li>Jasmine</li><li>Karma</li><li>Playwright</li><li>Postman</li><li>Git</li><li>GitLab</li><li>GitHub</li><li>Angular CLI</li><li>Jira</li><li>Chrome DevTools</li></ul></div>
+          <div class="card skill-group spot" data-fx><h3>Practices</h3><ul class="chips"><li>Agile Scrum</li><li>Code review</li><li>Component library design</li><li>Performance optimisation</li><li>State management</li><li>AI-assisted development</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-head" data-fx>
+          <h2>Education &amp; certifications</h2>
+        </div>
+        <div class="edu-grid">
+          <article class="card edu" data-fx>
+            <span class="edu-icon"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg></span>
+            <div>
+              <h3>B.E. Computer Science &amp; Engineering</h3>
+              <p class="tl-org">Chandigarh University, Mohali</p>
+              <p class="mono muted">2021 – 2025 · CGPA 8.54 / 10</p>
+              <p>Ranked 3rd of 200+ students in Computer Science. Final year completed alongside full-time employment.</p>
+            </div>
+          </article>
+          <article class="card edu" data-fx>
+            <span class="edu-icon"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg></span>
+            <div>
+              <h3>Master C++ Programming</h3>
+              <p class="tl-org">GeeksforGeeks</p>
+              <p class="mono muted">Certification</p>
+              <p>Data structures, algorithms and object-oriented programming in C++.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="card contact" data-fx>
+          <div>
+            <h2>Get in touch</h2>
+            <p>Open to conversations about Angular, frontend architecture and full-stack roles. I usually reply within a day.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-primary magnetic" href="mailto:harsh.shukla.dev@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> harsh.shukla.dev@gmail.com</a>
+            <button class="btn btn-secondary" id="copy-email" type="button" data-copy="harsh.shukla.dev@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> Copy email</button>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/harsh-shukla-dev008/" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/Harsh3851" target="_blank" rel="noopener"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-github"/></svg> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Harsh Shukla · Noida, India</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Harsh3851" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/harsh-shukla-dev008/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="Harsh_Shukla_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" type="button" aria-label="Back to top">
+    <svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-track" cx="22" cy="22" r="20"/><circle class="ring-fill" id="ring-fill" cx="22" cy="22" r="20"/></svg>
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
-
 </html>
