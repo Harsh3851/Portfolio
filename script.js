@@ -25,7 +25,7 @@
     var dark = currentTheme() === 'dark';
     if (themeBtn) {
       themeBtn.setAttribute('aria-pressed', String(dark));
-      themeBtn.setAttribute('aria-label', 'Switch to ' + (dark ? 'light' : 'dark') + ' mode');
+      themeBtn.setAttribute('aria-label', (dark ? 'Dark' : 'Light') + ' mode, switch to ' + (dark ? 'light' : 'dark'));
     }
     if (themeLabel) themeLabel.textContent = dark ? 'Dark' : 'Light';
   }
