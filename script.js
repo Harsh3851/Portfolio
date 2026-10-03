@@ -19,7 +19,7 @@
   function currentTheme() {
     var forced = root.getAttribute('data-theme');
     if (forced === 'dark' || forced === 'light') return forced;
-    return prefersDark.matches ? 'dark' : 'light';
+    return 'light'; // light is the default; dark only when chosen with the switch
   }
   function paintTheme() {
     var dark = currentTheme() === 'dark';
