@@ -208,6 +208,90 @@
     if (!animate) h.classList.add('in');
   });
 
+  /* ================= 21st.dev-inspired interactions (no GSAP needed) ================= */
+  var stackMode = window.matchMedia('(min-width: 1025px)');
+
+  // ---- Letter swap on nav links
+  Array.prototype.forEach.call(document.querySelectorAll('.site-nav a'), function (a) {
+    var text = a.textContent.trim();
+    if (!text || a.querySelector('.ls')) return;
+    var row = function () { return '<span class="ls-row">' + text.split('').map(function (c, i) { return '<span style="--i:' + i + '">' + (c === ' ' ? '&nbsp;' : c) + '</span>'; }).join('') + '</span>'; };
+    a.setAttribute('aria-label', text);
+    a.innerHTML = '<span class="ls" aria-hidden="true">' + row() + row() + '</span>';
+  });
+
+  // ---- Flow buttons: fill grows from the side the pointer entered
+  Array.prototype.forEach.call(document.querySelectorAll('.btn'), function (b) {
+    b.addEventListener('mouseenter', function (e) {
+      var r = b.getBoundingClientRect();
+      b.style.setProperty('--fx', (e.clientX - r.left) + 'px');
+      b.style.setProperty('--fy', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // ---- Stacking project cards: per-card offset
+  Array.prototype.forEach.call(document.querySelectorAll('.stack .project'), function (c, i) { c.style.setProperty('--i', i); });
+
+  // ---- Marker highlight (static path)
+  var hl = document.getElementById('hl');
+  if (hl && !animate) hl.classList.add('on');
+
+  // ---- Kinetic grid: dots lean toward the pointer, clicks send a ripple
+  (function kineticGrid() {
+    var cv = document.getElementById('kinetic');
+    if (!cv || !cv.getContext) return;
+    var heroEl = cv.parentElement, ctx = cv.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), W = 0, H = 0, dots = [], gap = 28;
+    var mouse = { x: -9999, y: -9999, on: false }, ripples = [], running = false, visible = true;
+    root.classList.add('has-kinetic');
+    function color(a) { var c = getComputedStyle(root).getPropertyValue('--accent').trim() || '#0E6B53'; return c; }
+    var accent = color();
+    function build() {
+      var r = heroEl.getBoundingClientRect(); W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      dots = [];
+      for (var y = gap / 2; y < H; y += gap) for (var x = gap / 2; x < W; x += gap) dots.push({ x: x, y: y, ox: 0, oy: 0 });
+      accent = color(); draw();
+    }
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = accent;
+      var now = t || 0;
+      for (var i = ripples.length - 1; i >= 0; i--) { ripples[i].r += 9; if (ripples[i].r > Math.max(W, H)) ripples.splice(i, 1); }
+      for (var j = 0; j < dots.length; j++) {
+        var d = dots[j], tx = 0, ty = 0, glow = 0;
+        if (mouse.on && !reduceMotion) {
+          var dx = mouse.x - d.x, dy = mouse.y - d.y, dist = Math.sqrt(dx * dx + dy * dy), R = 170;
+          if (dist < R) { var k = 1 - dist / R; tx += dx * k * 0.28; ty += dy * k * 0.28; glow = k; }
+        }
+        for (var q = 0; q < ripples.length; q++) {
+          var rp = ripples[q], ddx = d.x - rp.x, ddy = d.y - rp.y, dd = Math.sqrt(ddx * ddx + ddy * ddy), band = Math.abs(dd - rp.r);
+          if (band < 40 && dd > 0) { var f = (1 - band / 40) * (1 - rp.r / Math.max(W, H)); tx += ddx / dd * f * 10; ty += ddy / dd * f * 10; glow = Math.max(glow, f); }
+        }
+        d.ox += (tx - d.ox) * 0.18; d.oy += (ty - d.oy) * 0.18;
+        var fade = Math.max(0, 1 - (d.y / H) * 0.9);
+        ctx.globalAlpha = (0.16 + glow * 0.6) * fade;
+        var s = 1.1 + glow * 1.8;
+        ctx.beginPath(); ctx.arc(d.x + d.ox, d.y + d.oy, s, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+    function loop(t) { if (!running) return; draw(t); requestAnimationFrame(loop); }
+    function start() { if (running || reduceMotion || !visible) return; running = true; requestAnimationFrame(loop); }
+    function stop() { running = false; }
+    build();
+    window.addEventListener('resize', function () { build(); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(heroEl);
+    if (finePointer) {
+      heroEl.addEventListener('mousemove', function (e) { var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true; start(); });
+      heroEl.addEventListener('mouseleave', function () { mouse.on = false; });
+    }
+    heroEl.addEventListener('click', function (e) { if (reduceMotion) return; var r = cv.getBoundingClientRect(); ripples.push({ x: e.clientX - r.left, y: e.clientY - r.top, r: 0 }); start(); });
+    var themeObs = new MutationObserver(function () { accent = color(); draw(); });
+    themeObs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    if (!reduceMotion) start();
+  })();
+
   if (!animate) return;
 
   /* ================= GSAP choreography ================= */
@@ -270,6 +354,7 @@
   gsap.set(heads, { y: 24, autoAlpha: 0 });
   heads.forEach(function (h) { onEnter(h, 'top 88%', function () { reveal(h); h.classList.add('in'); }); });
 
+  if (stackMode.matches) Array.prototype.forEach.call(document.querySelectorAll('.stack .project'), function (c) { c.removeAttribute('data-fx'); });
   var fx = gsap.utils.toArray('[data-fx]:not(.section-head)');
   gsap.set(fx, { y: 32, autoAlpha: 0 });
   ScrollTrigger.batch(fx, { start: 'top 88%', once: true, onEnter: function (batch) { reveal(batch, { stagger: .09, duration: .8 }); } });
@@ -394,6 +479,57 @@
       });
     });
     if (backTop) backTop.addEventListener('click', function (e) { e.stopImmediatePropagation(); lenis.scrollTo(0); }, true);
+  }
+
+  // ---- Word rotate in the hero
+  var rot = document.getElementById('rot');
+  if (rot) {
+    var words = ['Angular dashboards', 'Node.js REST APIs', 'role-based access control', 'live-class integrations', 'full-stack MERN apps'];
+    var wi = 0, current = rot.querySelector('.rot-word');
+    setInterval(function () {
+      if (document.hidden) return;
+      wi = (wi + 1) % words.length;
+      var next = document.createElement('span'); next.className = 'rot-word'; next.textContent = words[wi];
+      rot.appendChild(next);
+      var old = current; current = next;
+      gsap.fromTo(next, { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .6, ease: 'power3.out' });
+      gsap.to(old, { yPercent: -100, opacity: 0, duration: .5, ease: 'power3.in', onComplete: function () { old.remove(); } });
+    }, 2600);
+  }
+
+  // ---- Marker highlight sweeps in after the hero intro
+  if (hl) setTimeout(function () { hl.classList.add('on'); }, 1900);
+
+  // ---- Stacking cards: earlier cards shrink and dim as the next one slides over
+  if (stackMode.matches) {
+    var cards = gsap.utils.toArray('.stack .project');
+    cards.forEach(function (card, i) {
+      var next = cards[i + 1]; if (!next) return;
+      ScrollTrigger.create({
+        trigger: next, start: 'top bottom', end: 'top ' + (76 + 18 * (i + 1)) + 'px', scrub: true,
+        onUpdate: function (self) { var p = self.progress; card.style.setProperty('--s', (1 - p * 0.06).toFixed(4)); card.style.setProperty('--b', (1 - p * 0.12).toFixed(4)); }
+      });
+    });
+  }
+
+  // ---- Velocity marquee: speeds up with scroll and follows its direction
+  var track = document.querySelector('.marquee-track');
+  if (track) {
+    track.classList.add('js-driven');
+    var mx = 0, dir = -1, lastY = window.scrollY, half = 0;
+    function measure() { half = track.scrollWidth / 2; }
+    measure(); window.addEventListener('resize', measure);
+    var paused = false;
+    track.parentElement.addEventListener('mouseenter', function () { paused = true; });
+    track.parentElement.addEventListener('mouseleave', function () { paused = false; });
+    gsap.ticker.add(function (time, delta) {
+      var y = window.scrollY, v = y - lastY; lastY = y;
+      if (v > 0.5) dir = -1; else if (v < -0.5) dir = 1;
+      var speed = paused ? 0 : (0.6 + Math.min(Math.abs(v) * 0.35, 14));
+      mx += dir * speed * (delta / 16.67);
+      if (half > 0) { if (mx <= -half) mx += half; if (mx > 0) mx -= half; }
+      track.style.transform = 'translate3d(' + mx.toFixed(2) + 'px,0,0)';
+    });
   }
 
   ScrollTrigger.refresh();
