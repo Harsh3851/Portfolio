@@ -516,7 +516,7 @@
   var track = document.querySelector('.marquee-track');
   if (track) {
     track.classList.add('js-driven');
-    var mx = 0, dir = -1, lastY = window.scrollY, half = 0;
+    var mqX = 0, dir = -1, lastY = window.scrollY, half = 0;
     function measure() { half = track.scrollWidth / 2; }
     measure(); window.addEventListener('resize', measure);
     var paused = false;
@@ -526,9 +526,9 @@
       var y = window.scrollY, v = y - lastY; lastY = y;
       if (v > 0.5) dir = -1; else if (v < -0.5) dir = 1;
       var speed = paused ? 0 : (0.6 + Math.min(Math.abs(v) * 0.35, 14));
-      mx += dir * speed * (delta / 16.67);
-      if (half > 0) { if (mx <= -half) mx += half; if (mx > 0) mx -= half; }
-      track.style.transform = 'translate3d(' + mx.toFixed(2) + 'px,0,0)';
+      mqX += dir * speed * (delta / 16.67);
+      if (half > 0) { if (mqX <= -half) mqX += half; if (mqX > 0) mqX -= half; }
+      track.style.transform = 'translate3d(' + mqX.toFixed(2) + 'px,0,0)';
     });
   }
 
